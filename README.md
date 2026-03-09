@@ -71,3 +71,58 @@ new Chart(ctx, {
 
 </body>
 </html>
+<h2>Expense Breakdown</h2>
+
+<canvas id="expenseChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const expenseCtx = document.getElementById('expenseChart');
+
+new Chart(expenseCtx, {
+    type: 'pie',
+    data: {
+        labels: [
+            'Salaries',
+            'Rent',
+            'Utilities',
+            'Marketing',
+            'Supplies'
+        ],
+        datasets: [{
+            label: 'Expenses',
+            data: [15000, 5000, 2000, 3000, 1000],
+            backgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56',
+                '#4CAF50',
+                '#9C27B0'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Company Expense Distribution'
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+</script>
+<h1>Financial Dashboard</h1>
+
+<h3>Total Revenue: $50,000</h3>
+<h3>Total Expenses: $32,000</h3>
+<h3>Net Profit: $18,000</h3>
+
+<h2>Revenue Chart</h2>
+<canvas id="revenueChart"></canvas>
+
+<h2>Expense Breakdown</h2>
+<canvas id="expenseChart"></canvas>
