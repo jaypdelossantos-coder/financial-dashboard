@@ -1,24 +1,35 @@
-# financial-dashboard
-My Financial Dashboard Website
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+<!DOCTYPE html>
+<html>
+<head>
+<title>Financial Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-function Dashboard() {
-  const [data, setData] = useState({});
+<body>
 
-  useEffect(() => {
-    axios.get("/api/summary")
-      .then(res => setData(res.data));
-  }, []);
+<h1>Financial Dashboard</h1>
 
-  return (
-    <div>
-      <h1>Financial Dashboard</h1>
-      <p>Revenue: ${data.revenue}</p>
-      <p>Expenses: ${data.expenses}</p>
-      <p>Profit: ${data.profit}</p>
-    </div>
-  );
-}
+<h3>Revenue: $50,000</h3>
+<h3>Expenses: $32,000</h3>
+<h3>Profit: $18,000</h3>
 
-export default Dashboard;
+<canvas id="myChart"></canvas>
+
+<script>
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+ type: 'line',
+ data: {
+  labels: ['Jan','Feb','Mar','Apr'],
+  datasets: [{
+   label: 'Revenue',
+   data: [12000,15000,10000,20000],
+   borderColor: 'green'
+  }]
+ }
+});
+</script>
+
+</body>
+</html>
